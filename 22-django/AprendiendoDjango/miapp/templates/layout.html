@@ -1,0 +1,59 @@
+{%load static %}
+<!DOCTYPE html>
+<html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            {% block title %}
+            <!--titulo de aca pagina en concreto-->
+            {% endblock %}
+            |- ADSO SENA 
+        </title>
+        {%load static %}
+        <link rel="stylesheet" href="{%static 'css/styles.css' %}"/>
+    </head>
+    <body>
+        <!--Cabecera de la Pagina-->
+        <header>
+            <div id="logotipo"> <!--Se usa id porque sera algo que estara una vez en la pagina-->
+                <!--Logo Django-->
+                <img src="{%static 'images/logo.png'%}"/>
+                <h1>Sitio WEB con Django</h1>
+            </div>
+        </header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="{% url 'inicio' %}">Inicio</a>
+                </li>
+                <li>
+                    <a href="{% url 'articulos' %}">Articulos</a>
+                </li>
+                 
+                <li>
+                    <a href="{% url 'create_full' %}">Crear articulo clases</a>
+                </li>
+
+                <li>
+                    <a href="{% url 'hola_mundo' %}">Hola Mundo</a>
+                </li>
+                <li>
+                    <a href="{% url 'pagina' %}">Pagina de Pruebas</a>
+                </li>
+              
+            </ul>
+        </nav>
+            <div id="content">
+                <div class="box">
+                    <h2 class= "tittle">Titulo Prueba</h2>
+                    {% block content %}
+                    <strong>Contenido del Bloque Original</strong>
+                    {% endblock %}
+                </div>
+            </div>
+        <footer>
+            Programacion con Django - ADSO 2023 &copy; Instructor Moises Garcia - {% now "d/m/Y h:m00"%}
+        </footer>
+    </body>
+</html>
